@@ -1,0 +1,27 @@
+<?php
+// Function to simulate a horse race
+function horseRace() {
+    $distance = 10; // Distance of the race
+    $numHorses = 5; // Number of horses
+    $track = str_repeat('_', $distance);
+
+    echo "Race begins!\n";
+
+    // Loop through each horse
+    for ($i = 0; $i < $numHorses; $i++) {
+        $horse = chr(65 + $i); // Assign a letter to each horse
+
+        // Simulate the race progress
+        for ($j = 0; $j < $distance; $j++) {
+            usleep(300000); // Delay for visualization purposes
+            $track[$j] = ($j === $distance - 1) ? $horse : '.';
+            echo "$track\r";
+        }
+    }
+
+    echo "Race ends!\n";
+}
+
+// Start the horse race
+horseRace();
+?>
